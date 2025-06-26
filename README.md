@@ -12,3 +12,9 @@ stow zsh
 stow nvim
 stow zellij
 stow wezterm
+
+
+stow zsh     # creates ~/.zshrc
+stow nvim    # creates ~/.config/nvim
+stow zellij  # creates ~/.config/zellij
+stow wezterm # creates ~/.config/wezterm

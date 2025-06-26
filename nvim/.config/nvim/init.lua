@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 
+
+
+
 require("core.globals")
 require("core.keymaps")
 require("core.options")
