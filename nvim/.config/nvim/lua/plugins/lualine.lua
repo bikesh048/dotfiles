@@ -9,7 +9,20 @@ return {
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "diff", "diagnostics" },
-        lualine_c = { { "filename", path = 1 } },
+        lualine_c = {
+          {
+            "filename",
+            path = 1,
+            symbols = {
+              modified = " ●", -- show dot when file is modified
+              readonly = " 🔒", -- lock icon for readonly
+              unnamed = "[No Name]",
+            },
+            color =  {
+              fg = "#ffa500"
+            }
+          },
+        },
         lualine_x = {
           { "fileformat", "filetype" },
           {
