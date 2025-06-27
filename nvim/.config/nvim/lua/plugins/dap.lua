@@ -20,18 +20,8 @@ return {
         end
       end,
     },
-    {
-      "suketa/nvim-dap-ruby",
-      config = function()
-        require("dap-ruby").setup()
-      end,
-    },
-    {
-      "leoluz/nvim-dap-go",
-      config = function()
-        require("dap-go").setup()
-      end,
-    },
+    ,
+    ,
     {
       "theHamsta/nvim-dap-virtual-text",
       opts = {},
