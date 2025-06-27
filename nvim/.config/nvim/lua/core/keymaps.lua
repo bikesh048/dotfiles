@@ -10,9 +10,6 @@ vim.keymap.set("i", "<C-j>", "<Down>")
 vim.keymap.set("i", "<C-k>", "<Up>")
 vim.keymap.set("i", "<C-l>", "<Right>")
 
-vim.keymap.set("i", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
-
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
