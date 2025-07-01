@@ -1,6 +1,14 @@
 -- Save file (Cmd+S)
 vim.keymap.set("i", "<C-s>", "<Esc><CMD>w<CR>a", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>la", function()
+  vim.lsp.buf.code_action({
+    apply = true,
+    context = {
+      only = { "quickfix" },
+    },
+  })
+end, { desc = "LSP: Apply quickfix (e.g. add import)" })
 
 vim.keymap.set("i", "<C-w>", "<Esc>wa")
 vim.keymap.set("i", "<C-b>", "<Esc>bi")
@@ -18,7 +26,7 @@ vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Exit insert mode without hitting Esc
-vim.keymap.set("i", "tt", "<Esc><Esc>", { desc = "Esc" })
+vim.keymap.set("i", "we", "<Esc><Esc>", { desc = "Esc" })
 
 -- Make Y behave like C or D
 vim.keymap.set("n", "Y", "y$")

@@ -40,7 +40,7 @@ return {
       map("n", "<leader>vrn", vim.lsp.buf.rename, opts)
       map("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
-      map("n", "<leader>ai", function()
+      map("n", "<leader>li", function()
         vim.lsp.buf.code_action({
           context = { only = { "source.addMissingImports.ts" }, diagnostics = {} },
           apply = true,
@@ -64,7 +64,6 @@ return {
         "dockerls",
         "bashls",
         "marksman",
-        "cucumber_language_server",
         "astro",
       },
       handlers = {
@@ -77,7 +76,7 @@ return {
           require("lspconfig").tsserver.setup({
             on_attach = function(client, bufnr)
               client.server_capabilities.documentFormattingProvider = false
-              vim.keymap.set("n", "<leader>ai", function()
+              vim.keymap.set("n", "<leader>li", function()
                 vim.lsp.buf.code_action({
                   context = { only = { "source.addMissingImports.ts" }, diagnostics = {} },
                   apply = true,
@@ -100,9 +99,38 @@ return {
             },
           })
         end,
+        tflint = function()
+          require("lspconfig").tflint.setup({
+            -- Reduce logging and increase debounce time
+            cmd_env = {
+              TF_LOG_PATH = "/tmp/tflint.log",
+              TF_LOG = "ERROR",
+            },
+            flags = {
+              debounce_text_changes = 500, -- Increased from default 150
+            },
+            -- Disable features you don't need
+            settings = {
+              tflint = {
+                -- Disable unused modules if not needed
+                moduleInspection = false,
+                -- Disable deep inspection if not needed
+                deepInspection = false,
+              }
+            },
+            -- Only enable for Terraform files
+            filetypes = { "terraform", "tf" },
+          })
+        end,
       },
     })
 
+    vim.diagnostic.config({
+      virtual_text = false,
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+    })
     -- Auto import missing on save
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
@@ -160,4 +188,3 @@ return {
     })
   end,
 }
-

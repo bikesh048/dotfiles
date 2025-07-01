@@ -1,4 +1,7 @@
 return {
+  {
+    "nvim-neotest/nvim-nio",
+  },
 
   {
     "MeanderingProgrammer/render-markdown.nvim",
