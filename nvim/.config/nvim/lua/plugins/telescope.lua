@@ -6,6 +6,9 @@ return {
   },
   config = function()
     local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<leader>wd", "<cmd>Telescope diagnostics<CR>", {
+      desc = "Telescope: Workspace diagnostics",
+    })
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
     vim.keymap.set(
       "n",
@@ -29,11 +32,12 @@ return {
     vim.keymap.set("n", "<leader>gb", builtin.git_bcommits, { desc = "Search Git Commits for Buffer" })
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
     vim.keymap.set("n", "<leader>/", function()
-      -- You can pass additional configuration to telescope to change theme, layout, etc.
+      local word = vim.fn.expand("<cword>")
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,
         previewer = false,
         layout_config = { width = 0.7 },
+        default_text = word
       }))
     end, { desc = "[/] Fuzzily search in current buffer" })
 

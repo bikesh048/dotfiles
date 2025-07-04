@@ -1,6 +1,14 @@
 -- Save file (Cmd+S)
 vim.keymap.set("i", "<C-s>", "<Esc><CMD>w<CR>a", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>lw", function()
+  vim.diagnostic.setqflist()
+end, {
+  desc = "LSP: Workspace diagnostics (Quickfix)",
+})
+
+vim.keymap.set('n', '<leader>tc', ':FloatermNew --title=TSCheck --autoclose=2 npx tsc --noEmit<CR>', { desc = 'Run TypeScript Check' })
+
 vim.keymap.set("n", "<leader>la", function()
   vim.lsp.buf.code_action({
     apply = true,
@@ -26,7 +34,7 @@ vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Exit insert mode without hitting Esc
-vim.keymap.set("i", "we", "<Esc><Esc>", { desc = "Esc" })
+vim.keymap.set("i", "ew", "<Esc><Esc>", { desc = "Esc" })
 
 -- Make Y behave like C or D
 vim.keymap.set("n", "Y", "y$")
