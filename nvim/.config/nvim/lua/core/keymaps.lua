@@ -7,7 +7,8 @@ end, {
   desc = "LSP: Workspace diagnostics (Quickfix)",
 })
 
-vim.keymap.set('n', '<leader>tc', ':FloatermNew --title=TSCheck --autoclose=2 npx tsc --noEmit<CR>', { desc = 'Run TypeScript Check' })
+vim.keymap.set('n', '<leader>tc', ':FloatermNew --title=TSCheck --autoclose=2 npx tsc --noEmit<CR>',
+  { desc = 'Run TypeScript Check' })
 
 vim.keymap.set("n", "<leader>la", function()
   vim.lsp.buf.code_action({
@@ -17,9 +18,6 @@ vim.keymap.set("n", "<leader>la", function()
     },
   })
 end, { desc = "LSP: Apply quickfix (e.g. add import)" })
-
-vim.keymap.set("i", "<C-w>", "<Esc>wa")
-vim.keymap.set("i", "<C-b>", "<Esc>bi")
 
 vim.keymap.set("i", "<C-h>", "<Left>")
 vim.keymap.set("i", "<C-j>", "<Down>")
@@ -34,9 +32,9 @@ vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Exit insert mode without hitting Esc
-vim.keymap.set("i", "ew", "<Esc><Esc>", { desc = "Esc" })
+vim.keymap.set("i", "df", "<Esc><Esc>", { desc = "Esc" })
 
--- Make Y behave like C or D
+-- Make Y behave likeeC or D
 vim.keymap.set("n", "Y", "y$")
 
 -- Select all
@@ -44,8 +42,8 @@ vim.keymap.set("n", "==", "gg<S-v>G")
 
 -- Keep window centered when going up/down
 vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>")
+vim.keymap.set("n", "<C-u>", "<C-u>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 

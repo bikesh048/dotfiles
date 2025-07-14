@@ -24,6 +24,6 @@ return {
     cursor_scrolls_alone = true,
 
     -- Define custom mappings (can also be set separately)
-    mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "zz", "zt", "zb" },
+    mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "zt", "zb" },
   },
 }
