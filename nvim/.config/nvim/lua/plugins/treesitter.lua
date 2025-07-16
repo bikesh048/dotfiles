@@ -12,8 +12,6 @@ return {
         "vim",
         "vimdoc",
         "query",
-        "heex",
-        "eex",
         "jq",
         "dockerfile",
         "json",
