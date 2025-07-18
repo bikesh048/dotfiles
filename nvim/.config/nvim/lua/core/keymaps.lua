@@ -1,3 +1,6 @@
+--
+vim.keymap.set("n", "<C-e>", "3<C-e>", { noremap = true })
+vim.keymap.set("n", "<C-y>", "3<C-y>", { noremap = true })
 -- Save file (Cmd+S)
 vim.keymap.set("i", "<C-s>", "<Esc><CMD>w<CR>a", { noremap = true, silent = true })
 
@@ -41,11 +44,8 @@ vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "==", "gg<S-v>G")
 
 -- Keep window centered when going up/down
-vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>")
 vim.keymap.set("n", "<C-u>", "<C-u>")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
 
 -- Paste without overwriting register
 vim.keymap.set("v", "p", '"_dP')
@@ -112,53 +112,53 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR>", { desc = "Run Last Test" })
 vim.keymap.set("n", "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", { desc = "Toggle Test Summary" })
-
--- Debug Tests
-vim.keymap.set("n", "<leader>dt", "<cmd>DapContinue<CR>", { desc = "Start Debugging" })
-vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", { desc = "Start Debugging" })
-vim.keymap.set("n", "<leader>dso", "<cmd>DapStepOver<CR>", { desc = "Step Over" })
-vim.keymap.set("n", "<leader>dsi", "<cmd>DapStepInto<CR>", { desc = "Step Into" })
-vim.keymap.set("n", "<leader>dsu", "<cmd>DapStepOut<CR>", { desc = "Step Out" })
-vim.keymap.set("n", "<leader>dst", "<cmd>DapStepTerminate<CR>", { desc = "Stop Debugger" })
-vim.keymap.set("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle Breakpoint" })
-vim.keymap.set(
-  "n",
-  "<leader>B",
-  "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-  { desc = "Toggle Breakpoint Condition" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>E",
-  "<cmd>lua require'dap'.set_exception_breakpoints()<CR>",
-  { desc = "Toggle Exception Breakpoint" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>dr",
-  "<cmd>lua require'dapui'.float_element('repl', { width = 100, height = 40, enter = true })<CR>",
-  { desc = "Show DAP REPL" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>ds",
-  "<cmd>lua require'dapui'.float_element('scopes', { width = 150, height = 50, enter = true })<CR>",
-  { desc = "Show DAP Scopes" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>df",
-  "<cmd>lua require'dapui'.float_element('stacks', { width = 150, height = 50, enter = true })<CR>",
-  { desc = "Show DAP Stacks" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>db",
-  "<cmd>lua require'dapui'.float_element('breakpoints', { enter = true })<CR>",
-  { desc = "Show DAP breakpoints" }
-)
-vim.keymap.set("n", "<leader>do", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Toggle DAP UI" })
-vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debug Last Test" })
+--
+-- -- Debug Tests
+-- vim.keymap.set("n", "<leader>dt", "<cmd>DapContinue<CR>", { desc = "Start Debugging" })
+-- vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", { desc = "Start Debugging" })
+-- vim.keymap.set("n", "<leader>dso", "<cmd>DapStepOver<CR>", { desc = "Step Over" })
+-- vim.keymap.set("n", "<leader>dsi", "<cmd>DapStepInto<CR>", { desc = "Step Into" })
+-- vim.keymap.set("n", "<leader>dsu", "<cmd>DapStepOut<CR>", { desc = "Step Out" })
+-- vim.keymap.set("n", "<leader>dst", "<cmd>DapStepTerminate<CR>", { desc = "Stop Debugger" })
+-- vim.keymap.set("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle Breakpoint" })
+-- vim.keymap.set(
+--   "n",
+--   "<leader>B",
+--   "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+--   { desc = "Toggle Breakpoint Condition" }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "<leader>E",
+--   "<cmd>lua require'dap'.set_exception_breakpoints()<CR>",
+--   { desc = "Toggle Exception Breakpoint" }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "<leader>dr",
+--   "<cmd>lua require'dapui'.float_element('repl', { width = 100, height = 40, enter = true })<CR>",
+--   { desc = "Show DAP REPL" }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "<leader>ds",
+--   "<cmd>lua require'dapui'.float_element('scopes', { width = 150, height = 50, enter = true })<CR>",
+--   { desc = "Show DAP Scopes" }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "<leader>df",
+--   "<cmd>lua require'dapui'.float_element('stacks', { width = 150, height = 50, enter = true })<CR>",
+--   { desc = "Show DAP Stacks" }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "<leader>db",
+--   "<cmd>lua require'dapui'.float_element('breakpoints', { enter = true })<CR>",
+--   { desc = "Show DAP breakpoints" }
+-- )
+-- vim.keymap.set("n", "<leader>do", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Toggle DAP UI" })
+-- vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debug Last Test" })
 
 -- Copy file paths
 vim.keymap.set("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
@@ -179,21 +179,6 @@ vim.keymap.set("n", "<C-S-Down>", ":resize +2<CR>", { desc = "Resize Horizontal 
 vim.keymap.set("n", "<C-S-Up>", ":resize -2<CR>", { desc = "Resize Horizontal Split Up" })
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Resize Vertical Split Down" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Vertical Split Up" })
-
--- Obsidian
-vim.keymap.set(
-  "n",
-  "<leader>oc",
-  "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
-  { desc = "Obsidian Check Checkbox" }
-)
-vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
-vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
-vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
-vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show ObsidianLinks" })
-vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New Note" })
-vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
-vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
 
 -- Visual --
 -- Stay in indent mode

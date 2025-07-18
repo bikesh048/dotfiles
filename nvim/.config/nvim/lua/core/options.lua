@@ -7,6 +7,8 @@ vim.o.clipboard = "unnamedplus"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -27,7 +29,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 1
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 

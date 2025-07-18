@@ -3,34 +3,34 @@ return {
     "nvim-neotest/nvim-nio",
   },
 
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {},
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
-  },
-  {
-    "chentoast/marks.nvim",
-    config = function()
-      require("marks").setup({
-        default_mappings = true,
-      })
-    end,
-  },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   opts = {},
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+  -- },
+  -- {
+  --   "chentoast/marks.nvim",
+  --   config = function()
+  --     require("marks").setup({
+  --       default_mappings = true,
+  --     })
+  --   end,
+  -- },
 
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require("treesitter-context").setup({
-        max_lines = 5,
-      })
-    end,
-  },
-  {
-    "RRethy/vim-illuminate",
-    config = function()
-      require("illuminate")
-    end,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   config = function()
+  --     require("treesitter-context").setup({
+  --       max_lines = 5,
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "RRethy/vim-illuminate",
+  --   config = function()
+  --     require("illuminate")
+  --   end,
+  -- },
 
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
@@ -43,24 +43,24 @@ return {
       },
     },
   },
-  {
-    "catppuccin/nvim",
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-  },
+  -- {
+  --   "catppuccin/nvim",
+  -- },
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  -- },
   {
     "exosyphon/telescope-color-picker.nvim",
     config = function()
       vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
     end,
   },
-  {
-    "mbbill/undotree",
-    config = function()
-      vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
-    end,
-  },
+  -- {
+  --   "mbbill/undotree",
+  --   config = function()
+  --     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
+  --   end,
+  -- },
   {
     "tpope/vim-fugitive",
     config = function()
@@ -68,12 +68,12 @@ return {
     end,
   },
   "tpope/vim-repeat",
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-  },
+  -- {
+  --   "numToStr/Comment.nvim",
+  --   config = function()
+  --     require("Comment").setup()
+  --   end,
+  -- },
   {
     "windwp/nvim-autopairs",
     config = function()
@@ -89,15 +89,15 @@ return {
       require("nvim-surround").setup({})
     end,
   },
-  {
-    "junegunn/fzf",
-    build = ":call fzf#install()",
-  },
-  "nanotee/zoxide.vim",
+  -- {
+  --   "junegunn/fzf",
+  --   build = ":call fzf#install()",
+  -- },
+  -- "nanotee/zoxide.vim",
   "nvim-telescope/telescope-ui-select.nvim",
   "debugloop/telescope-undo.nvim",
 
-  "mg979/vim-visual-multi",
+ -- "mg979/vim-visual-multi",
 
   {
     "folke/which-key.nvim",
