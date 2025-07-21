@@ -64,7 +64,10 @@ return {
   {
     "tpope/vim-fugitive",
     config = function()
-      vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Open Fugitive Panel" })
+      vim.keymap.set("n", "<leader>gs",function()
+      vim.cmd("Git")
+      vim.cmd("resize 9") -- Adjust height to ~25% of screen (e.g., 10 lines)
+    end, { desc = "Open Fugitive Panel" })
     end,
   },
   "tpope/vim-repeat",
