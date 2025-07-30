@@ -42,7 +42,7 @@ return {
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,
         previewer = false,
-        layout_config = { width = 0.7 },
+        layout_config = { width = 0.5 },
         default_text = word
       }))
     end, { desc = "[/] Fuzzily search in current buffer" })
@@ -79,7 +79,7 @@ return {
     telescope.setup({
       defaults = {
         layout_strategy = 'horizontal',
-        layout_config = { preview_width = 0.7 },
+        layout_config = { preview_width = 0.5 },
         -- `hidden = true` is not supported in text grep commands.
         vimgrep_arguments = vimgrep_arguments,
         path_display = { "truncate" },

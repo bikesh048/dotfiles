@@ -31,7 +31,8 @@ return {
 
       map("n", "gd", vim.lsp.buf.definition, opts)
       map("n", "K", vim.lsp.buf.hover, opts)
-      map("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
+      map("n", "<leader>vca", vim.lsp.buf.code_action, opts)
+      map("n", "<leader>vrn", vim.lsp.buf.rename, opts)
       map("n", "<leader>vd", vim.diagnostic.open_float, opts)
       map("n", "[d", vim.diagnostic.goto_next, opts)
       map("n", "]d", vim.diagnostic.goto_prev, opts)
@@ -52,19 +53,10 @@ return {
 
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "eslint",
-        "jdtls",
         "lua_ls",
-        "jsonls",
-        "html",
-        "elixirls",
-        "tailwindcss",
-        "tflint",
-        "pylsp",
-        "dockerls",
-        "bashls",
-        "marksman",
-        "astro",
+        "ts_ls", -- JavaScript / TypeScript
+        "tsp_server",
+        "eslint",   -- optional: for eslint CLI
       },
       handlers = {
         lsp.default_setup,
@@ -99,39 +91,10 @@ return {
             },
           })
         end,
-        tflint = function()
-          require("lspconfig").tflint.setup({
-            -- Reduce logging and increase debounce time
-            cmd_env = {
-              TF_LOG_PATH = "/tmp/tflint.log",
-              TF_LOG = "ERROR",
-            },
-            flags = {
-              debounce_text_changes = 500, -- Increased from default 150
-            },
-            -- Disable features you don't need
-            settings = {
-              tflint = {
-                -- Disable unused modules if not needed
-                moduleInspection = false,
-                -- Disable deep inspection if not needed
-                deepInspection = false,
-              }
-            },
-            -- Only enable for Terraform files
-            filetypes = { "terraform", "tf" },
-          })
-        end,
       },
     })
 
-    vim.diagnostic.config({
-      virtual_text = false,
-      signs = true,
-      underline = true,
-      update_in_insert = false,
-    })
-    -- Auto import missing on save
+    -- Optional: Add auto-import on save
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
       callback = function()
@@ -142,6 +105,14 @@ return {
       end,
     })
 
+    vim.diagnostic.config({
+      virtual_text = false,
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+    })
+
+    -- CMP Setup
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local cmp_action = lsp.cmp_action()
@@ -188,3 +159,4 @@ return {
     })
   end,
 }
+

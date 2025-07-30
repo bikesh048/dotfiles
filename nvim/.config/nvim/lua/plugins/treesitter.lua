@@ -70,12 +70,12 @@ return {
         },
         swap = {
           enable = true,
-          swap_next = {
-            ["<leader>p"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader>ps"] = "@parameter.inner",
-          },
+          -- swap_next = {
+          --   ["<leader>p"] = "@parameter.inner",
+          -- },
+          -- swap_previous = {
+          --   ["<leader>ps"] = "@parameter.inner",
+          -- },
         },
       },
     })
