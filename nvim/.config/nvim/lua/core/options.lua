@@ -37,3 +37,10 @@ vim.opt.updatetime = 50
 vim.opt.conceallevel = 2
 
 vim.opt.termguicolors = true
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("silent! write")
+  end,
+})
