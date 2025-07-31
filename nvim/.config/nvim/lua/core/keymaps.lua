@@ -5,8 +5,8 @@ vim.keymap.set('n', '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP Rename" })
 
-vim.keymap.set("n", "<C-e>", "3<C-e>", { noremap = true })
-vim.keymap.set("n", "<C-y>", "3<C-y>", { noremap = true })
+vim.keymap.set("n", "<C-e>", "2<C-e>", { noremap = true })
+vim.keymap.set("n", "<C-y>", "2<C-y>", { noremap = true })
 -- Save file (Cmd+S)
 vim.keymap.set("i", "<C-s>", "<Esc><CMD>w<CR>a", { noremap = true, silent = true })
 
