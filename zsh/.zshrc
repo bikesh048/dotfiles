@@ -44,7 +44,7 @@ zinit light zsh-users/zsh-syntax-highlighting  # Must be last
 # Tool Initializations
 # ==================================
 # FZF
-command -v fzf &>/dev/null && source <(fzf --zsh)
+source <(fzf --zsh)
 
 # NVM
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
