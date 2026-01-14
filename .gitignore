@@ -1,0 +1,23 @@
+# Vim/Neovim
+*.swp
+*.swo
+*.un~
+*.orig
+.netrwhist
+
+# Lazy.nvim lock file (optional - uncomment if you want to track it)
+# nvim/.config/nvim/lazy-lock.json
+
+# macOS
+.DS_Store
+
+# Backup files
+*.bak
+*~
+
+# Session files
+Session.vim
+
+# Local environment
+.env
+.env.local
