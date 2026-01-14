@@ -11,7 +11,7 @@ Personal dotfiles repository for macOS managed with GNU Stow. Provides a complet
 ```bash
 brew install stow
 cd ~/dotfiles
-stow nvim zsh wezterm zellij tmux
+stow nvim zsh wezterm zellij
 ```
 
 Required dependencies:
@@ -28,7 +28,6 @@ Each top-level directory is a stow package that symlinks to the home directory:
 - `zsh/` → `~/.zshrc`
 - `wezterm/` → `~/.config/wezterm`
 - `zellij/` → `~/.config/zellij`
-- `tmux/` → `~/.tmux.conf`
 
 ### Neovim Structure
 

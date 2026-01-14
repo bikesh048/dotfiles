@@ -10,22 +10,13 @@ fi
 # Environment Variables
 # ==================================
 export TERM="xterm-256color"
-export ZSH="$HOME/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 
 # ==================================
 # PATH Configuration
 # ==================================
 export PATH="$PATH:/opt/nvim/"
-export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-# ==================================
-# Oh-My-Zsh
-# ==================================
-ZSH_THEME=""  # Disabled - using Zinit for Powerlevel10k
-plugins=()    # Disabled - using Zinit for plugins
-source $ZSH/oh-my-zsh.sh
 
 # ==================================
 # Zinit Plugin Manager
@@ -53,10 +44,7 @@ zinit light zsh-users/zsh-syntax-highlighting  # Must be last
 # Tool Initializations
 # ==================================
 # FZF
-source <(fzf --zsh)
-
-# Tmuxifier
-eval "$(tmuxifier init -)"
+command -v fzf &>/dev/null && source <(fzf --zsh)
 
 # NVM
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"

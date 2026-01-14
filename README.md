@@ -10,7 +10,6 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | `zsh` | `~/.zshrc` | Zsh with Zinit + Powerlevel10k + DevOps aliases |
 | `wezterm` | `~/.config/wezterm` | WezTerm terminal config |
 | `zellij` | `~/.config/zellij` | Zellij terminal multiplexer |
-| `tmux` | `~/.tmux.conf` | Tmux configuration |
 
 ## Quick Start
 
@@ -21,7 +20,7 @@ brew install stow
 # Clone and stow
 git clone <repo> ~/dotfiles
 cd ~/dotfiles
-stow nvim zsh wezterm zellij tmux
+stow nvim zsh wezterm zellij
 ```
 
 ## Key Features
