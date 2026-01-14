@@ -16,7 +16,7 @@ stow nvim zsh wezterm zellij
 
 Required dependencies:
 ```bash
-brew install neovim stow fzf ripgrep lazygit yamllint ansible-lint
+brew install neovim stow fzf ripgrep lazygit zoxide yamllint ansible-lint
 ```
 
 ## Architecture
@@ -60,6 +60,9 @@ lua/
 - Powerlevel10k prompt
 - zsh-vi-mode (Vi keybindings)
 - fzf-tab (fuzzy completions)
+- zsh-completions (extra completions for 200+ tools)
+- forgit (interactive git with fzf)
+- zoxide (smart directory jumping)
 - DevOps aliases for k8s, terraform, docker, git
 
 ## LSP & Tooling

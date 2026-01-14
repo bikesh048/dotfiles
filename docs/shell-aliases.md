@@ -1,4 +1,4 @@
-# Shell Aliases
+# Shell Aliases & Tools
 
 ## Kubernetes
 
@@ -102,3 +102,74 @@ glog                   # View commit history
 | `ll` | `ls -la` | List with details |
 | `..` | `cd ..` | Go up one directory |
 | `...` | `cd ../..` | Go up two directories |
+
+## Zsh Plugins (Zinit)
+
+| Plugin | Purpose |
+|--------|---------|
+| `powerlevel10k` | Fast, customizable prompt with git status |
+| `fzf-tab` | Fuzzy search in tab completions |
+| `zsh-vi-mode` | Vim keybindings in terminal |
+| `zsh-autosuggestions` | Ghost text suggestions from history |
+| `zsh-completions` | Extra completions for 200+ tools |
+| `forgit` | Interactive git commands with fzf |
+| `zsh-syntax-highlighting` | Colors commands as you type |
+
+## FZF (Fuzzy Finder)
+
+Interactive fuzzy search for any list.
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+R` | Search command history |
+| `Ctrl+T` | Search files, insert path |
+| `Alt+C` | Search directories, cd into selected |
+
+### Examples
+```bash
+fzf                    # Interactive file finder
+cat file | fzf         # Fuzzy search through file
+v $(fzf)               # Find and open file in nvim
+kill $(ps | fzf)       # Interactive process kill
+```
+
+## Zoxide (Smart cd)
+
+Tracks your most used directories and lets you jump to them with partial names.
+
+| Command | Action |
+|---------|--------|
+| `z <query>` | Jump to best matching directory |
+| `zi <query>` | Interactive selection with fzf |
+| `z -` | Jump to previous directory |
+
+### Examples
+```bash
+z dotfiles             # Jump to ~/dotfiles (or similar)
+z nvim                 # Jump to nvim config directory
+zi                     # Interactive directory picker
+z proj api             # Jump to directory matching both words
+```
+
+## Forgit (Interactive Git)
+
+Git commands with fzf preview. Aliases provided by the plugin:
+
+| Alias | Command | Description |
+|-------|---------|-------------|
+| `ga` | `forgit::add` | Interactive stage files |
+| `glo` | `forgit::log` | Browse commits with preview |
+| `gd` | `forgit::diff` | Interactive diff viewer |
+| `grh` | `forgit::reset::head` | Interactive unstage |
+| `gcf` | `forgit::checkout::file` | Checkout files interactively |
+| `gcb` | `forgit::checkout::branch` | Checkout branch interactively |
+| `gss` | `forgit::stash::show` | Browse stashes |
+| `gclean` | `forgit::clean` | Interactive clean untracked |
+
+### Examples
+```bash
+glo                    # Browse git log with diff preview
+gd                     # Interactive diff viewer
+gcb                    # Fuzzy checkout branch
+gss                    # Browse and apply stashes
+```

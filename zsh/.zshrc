@@ -38,6 +38,8 @@ zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab
 zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light wfxr/forgit
 zinit light zsh-users/zsh-syntax-highlighting  # Must be last
 
 # ==================================
@@ -45,6 +47,9 @@ zinit light zsh-users/zsh-syntax-highlighting  # Must be last
 # ==================================
 # FZF
 source <(fzf --zsh)
+
+# Zoxide (smart cd)
+eval "$(zoxide init zsh)"
 
 # NVM
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"

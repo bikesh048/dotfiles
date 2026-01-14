@@ -7,7 +7,7 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | Package | Target | Description |
 |---------|--------|-------------|
 | `nvim` | `~/.config/nvim` | Neovim config (Lazy.nvim, LSP, Treesitter) |
-| `zsh` | `~/.zshrc` | Zsh with Zinit + Powerlevel10k + DevOps aliases |
+| `zsh` | `~/.zshrc` | Zsh with Zinit, fzf, zoxide + DevOps aliases |
 | `wezterm` | `~/.config/wezterm` | WezTerm terminal config |
 | `zellij` | `~/.config/zellij` | Zellij terminal multiplexer |
 
@@ -55,6 +55,6 @@ g, ga, gc, gp, gl, gst, gd, gco, glog
 ## Requirements
 
 ```bash
-brew install neovim stow fzf ripgrep lazygit
+brew install neovim stow fzf ripgrep lazygit zoxide
 brew install yamllint ansible-lint  # For YAML/Ansible linting
 ```
