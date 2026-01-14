@@ -44,3 +44,23 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     vim.cmd("silent! write")
   end,
 })
+
+-- Detect Ansible files and set filetype
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = {
+    "*/playbooks/*.yml",
+    "*/playbooks/*.yaml",
+    "*/roles/*/tasks/*.yml",
+    "*/roles/*/handlers/*.yml",
+    "*/roles/*/defaults/*.yml",
+    "*/roles/*/vars/*.yml",
+    "*/inventory/*.yml",
+    "*/group_vars/*.yml",
+    "*/host_vars/*.yml",
+    "*ansible*.yml",
+    "*ansible*.yaml",
+  },
+  callback = function()
+    vim.bo.filetype = "yaml.ansible"
+  end,
+})

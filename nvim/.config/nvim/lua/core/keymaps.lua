@@ -232,3 +232,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- lazygit floatterm
+vim.keymap.set("n", "<leader>gg", "<cmd>FloatermNew --height=0.9 --width=0.9 --title=lazygit lazygit<CR>", { desc = "Open Lazygit" })

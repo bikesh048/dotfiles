@@ -20,21 +20,22 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
+        -- Formatters
         "prettier",
         "prettierd",
-        -- "ktlint",
-        "eslint_d",
-        -- "google-java-format",
+        "stylua",
         "htmlbeautifier",
         "beautysh",
         "buf",
-        -- "rustfmt",
-        "yamlfix",
-        -- "taplo",
+        -- Linters
+        "eslint_d",
         "shellcheck",
-        -- "gopls",
-        -- "delve",
+        -- yamllint & ansible-lint: install via brew (more reliable)
+        -- brew install yamllint ansible-lint
+        -- LSP servers
         "astro-language-server",
+        "ansible-language-server",
+        "yaml-language-server",
       },
     })
   end,

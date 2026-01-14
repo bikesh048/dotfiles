@@ -89,6 +89,60 @@ bindkey '^P' up-line-or-search
 bindkey '^N' down-line-or-search
 
 # ==================================
+# DevOps Aliases
+# ==================================
+# Kubernetes
+alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get svc'
+alias kgn='kubectl get nodes'
+alias kga='kubectl get all'
+alias kgaa='kubectl get all -A'
+alias kd='kubectl describe'
+alias kl='kubectl logs -f'
+alias kx='kubectl exec -it'
+alias kns='kubectl config set-context --current --namespace'
+alias kctx='kubectl config use-context'
+
+# Terraform
+alias tf='terraform'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfaa='terraform apply -auto-approve'
+alias tfd='terraform destroy'
+alias tff='terraform fmt -recursive'
+alias tfv='terraform validate'
+
+# Docker
+alias d='docker'
+alias dc='docker compose'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dex='docker exec -it'
+alias dl='docker logs -f'
+alias dprune='docker system prune -af'
+
+# Git shortcuts
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git pull'
+alias gst='git status'
+alias gd='git diff'
+alias gco='git checkout'
+alias gb='git branch'
+alias glog='git log --oneline --graph'
+
+# General
+alias v='nvim'
+alias c='clear'
+alias ll='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# ==================================
 # Powerlevel10k Config
 # ==================================
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

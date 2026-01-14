@@ -54,9 +54,13 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        "ts_ls", -- JavaScript / TypeScript
-        "tsp_server",
-        "eslint",   -- optional: for eslint CLI
+        "ts_ls",        -- JavaScript / TypeScript
+        "eslint",       -- ESLint LSP
+        "yamlls",       -- YAML Language Server
+        "ansiblels",    -- Ansible Language Server
+        "terraformls",  -- Terraform
+        "dockerls",     -- Dockerfile
+        "docker_compose_language_service", -- Docker Compose
       },
       handlers = {
         lsp.default_setup,
@@ -64,8 +68,8 @@ return {
           local lua_opts = lsp.nvim_lua_ls()
           require("lspconfig").lua_ls.setup(lua_opts)
         end,
-        tsserver = function()
-          require("lspconfig").tsserver.setup({
+        ts_ls = function()
+          require("lspconfig").ts_ls.setup({
             on_attach = function(client, bufnr)
               client.server_capabilities.documentFormattingProvider = false
               vim.keymap.set("n", "<leader>li", function()
@@ -91,18 +95,49 @@ return {
             },
           })
         end,
+        yamlls = function()
+          require("lspconfig").yamlls.setup({
+            settings = {
+              yaml = {
+                schemas = {
+                  -- GitHub
+                  ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                  ["https://json.schemastore.org/github-action.json"] = "action.yml",
+                  -- Kubernetes
+                  ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "k8s/**/*.yml",
+                  ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+                  ["https://json.schemastore.org/chart.json"] = "Chart.yaml",
+                  -- Ansible
+                  ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] = "playbooks/*.yml",
+                  -- CI/CD
+                  ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.yml",
+                  -- Config files
+                  ["https://json.schemastore.org/prettierrc.json"] = ".prettierrc",
+                  ["https://json.schemastore.org/eslintrc.json"] = ".eslintrc",
+                  ["https://json.schemastore.org/package.json"] = "package.json",
+                  ["https://json.schemastore.org/docker-compose.json"] = "docker-compose*.yml",
+                },
+                validate = true,
+                completion = true,
+                hover = true,
+              },
+            },
+          })
+        end,
+        ansiblels = function()
+          require("lspconfig").ansiblels.setup({
+            filetypes = { "yaml.ansible" },
+            settings = {
+              ansible = {
+                validation = {
+                  enabled = true,
+                  lint = { enabled = true },
+                },
+              },
+            },
+          })
+        end,
       },
-    })
-
-    -- Optional: Add auto-import on save
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-      callback = function()
-        vim.lsp.buf.code_action({
-          context = { only = { "source.addMissingImports.ts" }, diagnostics = {} },
-          apply = true,
-        })
-      end,
     })
 
     vim.diagnostic.config({
