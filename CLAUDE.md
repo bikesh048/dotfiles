@@ -17,6 +17,7 @@ stow nvim zsh wezterm zellij
 Required dependencies:
 ```bash
 brew install neovim stow fzf ripgrep lazygit zoxide yamllint ansible-lint
+brew install bat eza delta fd tldr direnv lazydocker
 ```
 
 ## Architecture

@@ -51,6 +51,9 @@ source <(fzf --zsh)
 # Zoxide (smart cd)
 eval "$(zoxide init zsh)"
 
+# Direnv (auto-load .envrc)
+eval "$(direnv hook zsh)"
+
 # NVM
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
@@ -131,9 +134,16 @@ alias glog='git log --oneline --graph'
 # General
 alias v='nvim'
 alias c='clear'
-alias ll='ls -la'
 alias ..='cd ..'
 alias ...='cd ../..'
+
+# Modern CLI replacements
+alias cat='bat'
+alias ls='eza'
+alias ll='eza -la --git'
+alias tree='eza --tree'
+alias find='fd'
+alias lzd='lazydocker'
 
 # ==================================
 # Powerlevel10k Config

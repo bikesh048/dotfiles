@@ -56,5 +56,6 @@ g, ga, gc, gp, gl, gst, gd, gco, glog
 
 ```bash
 brew install neovim stow fzf ripgrep lazygit zoxide
+brew install bat eza delta fd tldr direnv lazydocker
 brew install yamllint ansible-lint  # For YAML/Ansible linting
 ```

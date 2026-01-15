@@ -44,6 +44,10 @@ Leader key: `<Space>`
 |--------|-------------|
 | `<leader>gs` | Git status (Fugitive) |
 | `<leader>gg` | Open Lazygit |
+| `<leader>gd` | Diffview open |
+| `<leader>gh` | Diffview file history |
+| `<leader>gH` | Diffview branch history |
+| `<leader>gq` | Diffview close |
 
 ## Trouble (Diagnostics)
 

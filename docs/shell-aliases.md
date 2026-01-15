@@ -99,9 +99,54 @@ glog                   # View commit history
 |-------|---------|-------------|
 | `v` | `nvim` | Open Neovim |
 | `c` | `clear` | Clear terminal |
-| `ll` | `ls -la` | List with details |
 | `..` | `cd ..` | Go up one directory |
 | `...` | `cd ../..` | Go up two directories |
+
+## Modern CLI Replacements
+
+| Alias | Command | Description |
+|-------|---------|-------------|
+| `cat` | `bat` | Cat with syntax highlighting |
+| `ls` | `eza` | Modern ls with git status |
+| `ll` | `eza -la --git` | Detailed list with git status |
+| `tree` | `eza --tree` | Tree view |
+| `find` | `fd` | Fast, user-friendly find |
+| `lzd` | `lazydocker` | Docker TUI |
+
+### Tools Overview
+
+| Tool | What it does |
+|------|--------------|
+| `bat` | Cat with syntax highlighting, line numbers, git integration |
+| `eza` | Modern ls with colors, icons, git status, tree view |
+| `delta` | Beautiful git diffs (auto-configured as git pager) |
+| `fd` | Fast find alternative with intuitive syntax |
+| `tldr` | Simplified man pages with examples |
+| `direnv` | Auto-load `.envrc` files when entering directories |
+| `lazydocker` | Terminal UI for Docker (like lazygit for containers) |
+
+### Examples
+```bash
+bat file.txt           # View file with syntax highlighting
+ll                     # List files with git status
+tree                   # Show directory tree
+fd "*.lua"             # Find all lua files
+fd -e js -x prettier   # Find js files and run prettier
+tldr tar               # Quick examples for tar command
+lzd                    # Open lazydocker TUI
+```
+
+## Direnv
+
+Auto-loads environment variables from `.envrc` files when you cd into a directory.
+
+```bash
+# Create .envrc in project directory
+echo 'export API_KEY="xxx"' > .envrc
+direnv allow           # Approve the .envrc file
+
+# Now API_KEY is auto-loaded when you enter the directory
+```
 
 ## Zsh Plugins (Zinit)
 
