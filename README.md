@@ -48,9 +48,10 @@ g, ga, gc, gp, gl, gst, gd, gco, glog
 
 ## Documentation
 
-- [Neovim Keymaps](docs/nvim-keymaps.md)
-- [Shell Aliases](docs/shell-aliases.md)
-- [LSP & Tools](docs/lsp-tools.md)
+- [Neovim Keymaps](docs/nvim-keymaps.md) - Complete keymap reference
+- [Telescope Guide](docs/telescope-guide.md) - Search, find & replace, extensions
+- [Shell Aliases](docs/shell-aliases.md) - DevOps aliases
+- [LSP & Tools](docs/lsp-tools.md) - Language servers, formatters, linters
 
 ## Requirements
 

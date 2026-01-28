@@ -3,6 +3,11 @@ return {
   tag = "0.1.4",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+    "debugloop/telescope-undo.nvim",
+    "aaronhallaert/advanced-git-search.nvim",
+    "exosyphon/telescope-color-picker.nvim",
   },
   config = function()
     local builtin = require("telescope.builtin")
@@ -16,12 +21,7 @@ return {
       "<cmd>lua require('telescope.builtin').resume()<CR>",
       { desc = "Resume last Telescope picker" }
     )
-    vim.keymap.set(
-      "n",
-      "<leader>fg",
-      "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-      { desc = "Live Grep" }
-    )
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
     vim.keymap.set(
       "n",
       "<leader>fc",
@@ -37,6 +37,8 @@ return {
     vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search Git Commits" })
     vim.keymap.set("n", "<leader>gb", builtin.git_bcommits, { desc = "Search Git Commits for Buffer" })
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
+    vim.keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<CR>", { desc = "Clipboard History (Yank)" })
+    vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<CR>", { desc = "Undo History" })
     vim.keymap.set("n", "<leader>/", function()
       local word = vim.fn.expand("<cword>")
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -86,12 +88,14 @@ return {
         mappings = {
           n = {
             ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
           },
           i = {
             ["<C-j>"] = actions.cycle_history_next,
             ["<C-k>"] = actions.cycle_history_prev,
             ["<CR>"] = select_one_or_multi,
             ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
             ["<C-S-d>"] = actions.delete_buffer,
             ["<C-s>"] = actions.cycle_previewers_next,
             ["<C-a>"] = actions.cycle_previewers_prev,
@@ -132,8 +136,6 @@ return {
     require("telescope").load_extension("undo")
 
     require("telescope").load_extension("advanced_git_search")
-
-    require("telescope").load_extension("live_grep_args")
 
     require("telescope").load_extension("colors")
 

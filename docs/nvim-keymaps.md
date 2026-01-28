@@ -71,12 +71,49 @@ Leader key: `<Space>`
 
 ## Telescope
 
+### File & Text Search
+
 | Keymap | Description |
 |--------|-------------|
 | `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>fb` | Buffers |
+| `<leader>fo` | Find old files (recent) |
+| `<leader>fg` | Live grep (search text) |
+| `<leader>fc` | Live grep code (exclude tests) |
+| `<leader>fw` | Find word under cursor |
+| `<leader>fb` | Find buffers |
+| `<leader>/` | Fuzzy search in current buffer |
+
+### Utilities
+
+| Keymap | Description |
+|--------|-------------|
 | `<leader>fh` | Help tags |
+| `<leader>fk` | Find keymaps |
+| `<leader>fs` | LSP document symbols |
+| `<leader>fr` | Resume last search |
+| `<leader>fy` | Clipboard history (yank) |
+| `<leader>fu` | Undo history |
+| `<leader>uC` | Color picker |
+| `<leader>wd` | Workspace diagnostics |
+
+### Git
+
+| Keymap | Description |
+|--------|-------------|
+| `<leader>gc` | Git commits |
+| `<leader>gb` | Git commits for buffer |
+| `<leader>fi` | Advanced git search |
+
+### Inside Telescope
+
+| Keymap | Description |
+|--------|-------------|
+| `Ctrl-j/k` | Navigate results |
+| `Ctrl-q` | Send ALL to quickfix |
+| `Ctrl-w` | Send SELECTED to quickfix |
+| `Tab` | Select/deselect item |
+| `Enter` | Open file |
+| `Esc` | Close |
 
 ## Visual Mode
 
