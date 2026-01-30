@@ -16,6 +16,7 @@ return {
       svelte = { "eslint_d" },
       yaml = { "yamllint" },
       ["yaml.ansible"] = { "ansible_lint" },
+      php = { "phpcs" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

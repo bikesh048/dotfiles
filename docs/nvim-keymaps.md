@@ -38,16 +38,52 @@ Leader key: `<Space>`
 | `<leader>l` | Format file/selection |
 | `<leader>ll` | Trigger linting |
 
-## Git
+## Git (see [Git Workflow Guide](./git-workflow.md) for details)
+
+### Main Git Tools
 
 | Keymap | Description |
 |--------|-------------|
+| `<leader>gg` | Open Lazygit (full git UI) |
 | `<leader>gs` | Git status (Fugitive) |
-| `<leader>gg` | Open Lazygit |
 | `<leader>gd` | Diffview open |
 | `<leader>gh` | Diffview file history |
 | `<leader>gH` | Diffview branch history |
 | `<leader>gq` | Diffview close |
+| `<leader>gc` | Search git commits (Telescope) |
+| `<leader>gb` | Search commits for current file |
+| `<leader>fi` | Advanced git search |
+
+### GitSigns - Inline Git Operations
+
+#### Blame
+| Keymap | Description |
+|--------|-------------|
+| `<leader>hb` | Blame current line (popup) |
+| `<leader>htb` | Toggle inline blame |
+
+#### Navigation
+| Keymap | Description |
+|--------|-------------|
+| `]c` | Next git change (hunk) |
+| `[c` | Previous git change |
+
+#### Stage/Reset
+| Keymap | Description |
+|--------|-------------|
+| `<leader>hs` | Stage hunk |
+| `<leader>hr` | Reset hunk |
+| `<leader>hS` | Stage buffer |
+| `<leader>hR` | Reset buffer |
+| `<leader>hu` | Undo stage hunk |
+
+#### Preview/Diff
+| Keymap | Description |
+|--------|-------------|
+| `<leader>hp` | Preview hunk |
+| `<leader>hd` | Diff this file |
+| `<leader>hD` | Diff this file (alternate) |
+| `<leader>htd` | Toggle deleted lines |
 
 ## Trouble (Diagnostics)
 

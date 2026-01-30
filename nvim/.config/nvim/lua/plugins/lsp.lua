@@ -61,6 +61,7 @@ return {
         "terraformls",  -- Terraform
         "dockerls",     -- Dockerfile
         "docker_compose_language_service", -- Docker Compose
+        "intelephense", -- PHP Language Server
       },
       handlers = {
         lsp.default_setup,

@@ -26,9 +26,9 @@ stow nvim zsh wezterm zellij
 ## Key Features
 
 ### Neovim
-- **LSP**: TypeScript, ESLint, Terraform, Docker, YAML, Ansible
-- **Formatting**: Prettier, Stylua, Beautysh
-- **Linting**: ESLint, Yamllint, Ansible-lint
+- **LSP**: TypeScript, PHP, ESLint, Terraform, Docker, YAML, Ansible
+- **Formatting**: Prettier, PHP-CS-Fixer, Stylua, Beautysh
+- **Linting**: ESLint, PHPCS, Yamllint, Ansible-lint
 - **Plugins**: Telescope, Harpoon, Oil, Fugitive, Trouble
 
 ### Shell Aliases
@@ -50,6 +50,8 @@ g, ga, gc, gp, gl, gst, gd, gco, glog
 
 - [Neovim Keymaps](docs/nvim-keymaps.md) - Complete keymap reference
 - [Telescope Guide](docs/telescope-guide.md) - Search, find & replace, extensions
+- [Git Workflow](docs/git-workflow.md) - Git operations, blame, diffview, lazygit
+- [PHP Setup](docs/php-setup.md) - PHP development setup and navigation
 - [Shell Aliases](docs/shell-aliases.md) - DevOps aliases
 - [LSP & Tools](docs/lsp-tools.md) - Language servers, formatters, linters
 

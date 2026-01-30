@@ -29,6 +29,7 @@ return {
         sh = { "beautysh" },
         -- go = { "gofmt" },
         xml = { "xmllint" },
+        php = { "php_cs_fixer" },
       },
     })
 

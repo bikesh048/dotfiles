@@ -12,6 +12,7 @@
 | `terraformls` | Terraform | HCL support |
 | `dockerls` | Dockerfile | Docker syntax support |
 | `docker_compose_language_service` | Docker Compose | Compose file support |
+| `intelephense` | PHP | Completions, go-to-def, refactoring |
 
 ## YAML Schemas
 
@@ -43,6 +44,7 @@ The YAML language server is configured with schemas for:
 | `proto` | buf |
 | `toml` | taplo |
 | `xml` | xmllint |
+| `php` | php-cs-fixer |
 
 ## Linters (nvim-lint)
 
@@ -52,6 +54,7 @@ The YAML language server is configured with schemas for:
 | `svelte` | eslint_d |
 | `yaml` | yamllint |
 | `yaml.ansible` | ansible_lint |
+| `php` | phpcs |
 
 ## Treesitter Parsers
 
