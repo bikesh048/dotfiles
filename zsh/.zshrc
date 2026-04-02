@@ -113,6 +113,7 @@ alias tfv='terraform validate'
 # Docker
 alias d='docker'
 alias dc='docker compose'
+alias dcd="docker compose -f docker-compose.yml -f docker-compose.dev.yml"
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dex='docker exec -it'
@@ -130,6 +131,8 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gb='git branch'
 alias glog='git log --oneline --graph'
+alias gr='git rebase'
+alias gm='git merge'
 
 # General
 alias v='nvim'
@@ -149,3 +152,18 @@ alias lzd='lazydocker'
 # Powerlevel10k Config
 # ==================================
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=$PATH:$(npm config get prefix)/bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# Secrets (loaded from dedicated file)
+[ -f ~/.claude-secrets ] && source ~/.claude-secrets

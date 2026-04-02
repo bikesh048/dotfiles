@@ -29,6 +29,9 @@ Each top-level directory is a stow package that symlinks to the home directory:
 - `zsh/` → `~/.zshrc`
 - `wezterm/` → `~/.config/wezterm`
 - `zellij/` → `~/.config/zellij`
+- `claude/` → `~/.claude/*` (personal Claude Code config, uses `--no-folding`)
+
+**Claude package note:** The `claude/` package contains personal config only. Team config is managed separately in [TripcartHQ/claude-config](https://github.com/TripcartHQ/claude-config). Install team config first (`install.sh --global`), then stow personal on top. Team files are real files; personal files become symlinks. This ensures team config always wins on conflicts.
 
 ### Neovim Structure
 

@@ -10,6 +10,7 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | `zsh` | `~/.zshrc` | Zsh with Zinit, fzf, zoxide + DevOps aliases |
 | `wezterm` | `~/.config/wezterm` | WezTerm terminal config |
 | `zellij` | `~/.config/zellij` | Zellij terminal multiplexer |
+| `claude` | `~/.claude/*` | Personal Claude Code config (agents, commands, skills, hooks, scripts) |
 
 ## Quick Start
 
@@ -20,8 +21,23 @@ brew install stow
 # Clone and stow
 git clone <repo> ~/dotfiles
 cd ~/dotfiles
-stow nvim zsh wezterm zellij
+stow --no-folding nvim zsh wezterm zellij claude
 ```
+
+### Claude Code
+
+Personal Claude Code config complements the team config from [TripcartHQ/claude-config](https://github.com/TripcartHQ/claude-config).
+
+**Install order** (team config wins on conflicts):
+```bash
+# 1. Team config first
+cd ~/projects/claude-config && ./install.sh --global --machine=mac
+
+# 2. Personal config on top (--no-folding = file-level symlinks)
+cd ~/dotfiles && stow --no-folding claude
+```
+
+Includes: 14 agents, 58 commands, 26 skills, 8 language rule sets, hooks, scripts, statusline.
 
 ## Key Features
 
