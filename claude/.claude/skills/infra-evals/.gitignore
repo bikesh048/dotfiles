@@ -1,0 +1,5 @@
+results/responses.jsonl
+evals/skill_context.txt
+__pycache__/
+*.pyc
+.env

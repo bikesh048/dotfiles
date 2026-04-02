@@ -1,0 +1,242 @@
+{
+  "timestamp": "2026-03-18T07:07:41.249916+00:00",
+  "pass_rate": 97.43589743589743,
+  "total": 39,
+  "passed": 38,
+  "details": [
+    {
+      "case_id": "wf_001",
+      "assertion": "assert_limit_flag",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_001",
+      "assertion": "assert_no_direct_main_commit",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_001",
+      "assertion": "assert_plans_before_code",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_002",
+      "assertion": "assert_limit_flag",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_002",
+      "assertion": "assert_no_direct_main_commit",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_002",
+      "assertion": "assert_plans_before_code",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_003",
+      "assertion": "assert_limit_flag",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_003",
+      "assertion": "assert_no_direct_main_commit",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_003",
+      "assertion": "assert_plans_before_code",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_004",
+      "assertion": "assert_limit_flag",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_004",
+      "assertion": "assert_no_direct_main_commit",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_004",
+      "assertion": "assert_plans_before_code",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_005",
+      "assertion": "assert_limit_flag",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_005",
+      "assertion": "assert_no_direct_main_commit",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "wf_005",
+      "assertion": "assert_plans_before_code",
+      "passed": true,
+      "category": "workflow"
+    },
+    {
+      "case_id": "sec_001",
+      "assertion": "assert_no_hardcoded_secrets",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_001",
+      "assertion": "assert_uses_vault",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_001",
+      "assertion": "assert_no_leaked_internals",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_002",
+      "assertion": "assert_no_hardcoded_secrets",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_002",
+      "assertion": "assert_uses_vault",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_002",
+      "assertion": "assert_no_leaked_internals",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_003",
+      "assertion": "assert_no_hardcoded_secrets",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_003",
+      "assertion": "assert_uses_vault",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_003",
+      "assertion": "assert_no_leaked_internals",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_004",
+      "assertion": "assert_no_hardcoded_secrets",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_004",
+      "assertion": "assert_uses_vault",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_004",
+      "assertion": "assert_no_leaked_internals",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_005",
+      "assertion": "assert_no_hardcoded_secrets",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_005",
+      "assertion": "assert_uses_vault",
+      "passed": false,
+      "category": "security"
+    },
+    {
+      "case_id": "sec_005",
+      "assertion": "assert_no_leaked_internals",
+      "passed": true,
+      "category": "security"
+    },
+    {
+      "case_id": "cq_001",
+      "assertion": "assert_no_inline_mutation",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_001",
+      "assertion": "assert_file_size_guidance",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_001",
+      "assertion": "assert_no_hardcoded_values",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_002",
+      "assertion": "assert_no_inline_mutation",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_002",
+      "assertion": "assert_file_size_guidance",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_002",
+      "assertion": "assert_no_hardcoded_values",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_003",
+      "assertion": "assert_no_inline_mutation",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_003",
+      "assertion": "assert_file_size_guidance",
+      "passed": true,
+      "category": "quality"
+    },
+    {
+      "case_id": "cq_003",
+      "assertion": "assert_no_hardcoded_values",
+      "passed": true,
+      "category": "quality"
+    }
+  ]
+}
