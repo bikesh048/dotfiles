@@ -15,6 +15,9 @@ return {
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
       yaml = { "yamllint" },
+      dockerfile = { "hadolint" },
+      terraform = { "tflint" },
+      python = { "ruff" },
       ["yaml.ansible"] = { "ansible_lint" },
       php = { "phpcs" },
     }

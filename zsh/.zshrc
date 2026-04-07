@@ -13,10 +13,9 @@ export TERM="xterm-256color"
 export NVM_DIR="$HOME/.nvm"
 
 # ==================================
-# PATH Configuration
+# PATH Configuration (consolidated)
 # ==================================
-export PATH="$PATH:/opt/nvim/"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.opencode/bin:/opt/homebrew/opt/openjdk/bin:/opt/nvim:$PATH"
 
 # ==================================
 # Zinit Plugin Manager
@@ -46,7 +45,7 @@ zinit light zsh-users/zsh-syntax-highlighting  # Must be last
 # Tool Initializations
 # ==================================
 # FZF
-source <(fzf --zsh)
+command -v fzf &>/dev/null && source <(fzf --zsh)
 
 # Zoxide (smart cd)
 eval "$(zoxide init zsh)"
@@ -94,11 +93,17 @@ alias kgs='kubectl get svc'
 alias kgn='kubectl get nodes'
 alias kga='kubectl get all'
 alias kgaa='kubectl get all -A'
+alias kgd='kubectl get deployments'
 alias kd='kubectl describe'
 alias kl='kubectl logs -f'
 alias kx='kubectl exec -it'
+alias kaf='kubectl apply -f'
+alias kdel='kubectl delete'
 alias kns='kubectl config set-context --current --namespace'
 alias kctx='kubectl config use-context'
+alias krr='kubectl rollout restart'
+alias krs='kubectl rollout status'
+alias ktop='kubectl top'
 
 # Terraform
 alias tf='terraform'
@@ -109,6 +114,8 @@ alias tfaa='terraform apply -auto-approve'
 alias tfd='terraform destroy'
 alias tff='terraform fmt -recursive'
 alias tfv='terraform validate'
+alias tfo='terraform output'
+alias tfs='terraform state list'
 
 # Docker
 alias d='docker'
@@ -118,6 +125,8 @@ alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dex='docker exec -it'
 alias dl='docker logs -f'
+alias dimg='docker image ls'
+alias dbn='docker build -t'
 alias dprune='docker system prune -af'
 
 # Git shortcuts
@@ -129,10 +138,14 @@ alias gl='git pull'
 alias gst='git status'
 alias gd='git diff'
 alias gco='git checkout'
+alias gsw='git switch'
 alias gb='git branch'
 alias glog='git log --oneline --graph'
 alias gr='git rebase'
 alias gm='git merge'
+alias gfa='git fetch --all'
+alias gsta='git stash'
+alias gstp='git stash pop'
 
 # General
 alias v='nvim'
@@ -153,17 +166,12 @@ alias lzd='lazydocker'
 # ==================================
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# opencode
-export PATH="$HOME/.opencode/bin:$PATH"
-
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH=$PATH:$(npm config get prefix)/bin
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$(npm config get prefix)/bin:$PATH"
 
 # Secrets (loaded from dedicated file)
 [ -f ~/.claude-secrets ] && source ~/.claude-secrets

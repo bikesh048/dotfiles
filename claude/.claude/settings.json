@@ -39,21 +39,75 @@
   },
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "mcpServers": {
-    "mysql": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@benborla29/mcp-server-mysql"
-      ],
-      "env": {
-        "MYSQL_HOST": "${MYSQL_HOST:-127.0.0.1}",
-        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}",
-        "MYSQL_DATABASE": "${MYSQL_DATABASE:-tripcart}",
-        "MYSQL_PORT": "${MYSQL_PORT:-3307}",
-        "MYSQL_USER": "${MYSQL_USER:-tripcart}"
+  "autoDreamEnabled": true,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/keyword-detector.mjs\""
+          }
+        ]
       }
-    }
-  },
-  "autoDreamEnabled": true
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/session-start.mjs\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/pre-tool-use.mjs\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/post-tool-use.mjs\""
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/post-tool-use-failure.mjs\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/persistent-mode.mjs\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/code-simplifier.mjs\""
+          }
+        ]
+      }
+    ]
+  }
 }
