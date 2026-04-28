@@ -21,3 +21,4 @@ Session.vim
 # Local environment
 .env
 .env.local
+.omc

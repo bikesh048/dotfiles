@@ -32,9 +32,6 @@ return {
         "shellcheck",
         "hadolint",
         "tflint",
-        -- Python/Go formatters
-        "black",
-        "goimports",
         -- yamllint & ansible-lint: install via brew (more reliable)
         -- brew install yamllint ansible-lint
         -- LSP servers

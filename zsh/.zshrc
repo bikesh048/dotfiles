@@ -161,6 +161,8 @@ alias tree='eza --tree'
 alias find='fd'
 alias lzd='lazydocker'
 
+alias cc-alok="CLAUDE_CONFIG_DIR=~/.claude-account-alok claude"
+
 # ==================================
 # Powerlevel10k Config
 # ==================================
@@ -173,5 +175,3 @@ alias lzd='lazydocker'
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$(npm config get prefix)/bin:$PATH"
 
-# Secrets (loaded from dedicated file)
-[ -f ~/.claude-secrets ] && source ~/.claude-secrets
