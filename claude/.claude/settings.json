@@ -18,7 +18,87 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @iyadhk/clauditor hook user-prompt-submit"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @iyadhk/clauditor hook pre-compact"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @iyadhk/clauditor hook post-compact"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @iyadhk/clauditor hook session-start"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @iyadhk/clauditor hook stop"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @iyadhk/clauditor hook post-tool-use"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -c '{hookSpecificOutput: {hookEventName: \"PostToolUseFailure\", additionalContext: (\"⚠️ Terminal error detected!\\n\\nFailed command:\\n\" + (.tool_input.command // \"unknown\") + \"\\n\\nError output:\\n\" + (.tool_response.output // (.tool_response | tostring)) + \"\\n\\nDiagnose this error, identify the root cause, and suggest a specific fix. Do NOT auto-apply changes — present your diagnosis and recommendation clearly so the user can decide.\")}}' 2>/dev/null || true",
+            "statusMessage": "Diagnosing terminal error...",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -31,7 +111,8 @@
     "context7@claude-plugins-official": true,
     "oh-my-claudecode@oh-my-claudecode": true,
     "obsidian@obsidian-skills": true,
-    "oh-my-claudecode@omc": true
+    "oh-my-claudecode@omc": true,
+    "claude-mem@thedotmack": true
   },
   "extraKnownMarketplaces": {
     "oh-my-claudecode": {
@@ -51,6 +132,12 @@
         "source": "git",
         "url": "https://github.com/Yeachan-Heo/oh-my-claudecode.git"
       }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
     }
   },
   "effortLevel": "xhigh",
@@ -58,5 +145,18 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "mcpServers": {
+    "token-savior-recall": {
+      "command": "uvx",
+      "args": [
+        "token-savior-recall"
+      ],
+      "env": {
+        "WORKSPACE_ROOTS": "/Users/bikeshrestha/codewing-projects/tripcart",
+        "TOKEN_SAVIOR_CLIENT": "claude-code"
+      }
+    }
+  },
+  "model": "sonnet"
 }
