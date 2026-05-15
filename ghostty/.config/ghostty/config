@@ -1,0 +1,14 @@
+theme = tokyonight
+font-size = 18
+background-opacity = 0.8
+background-blur-radius = 8
+cursor-style = bar
+cursor-style-blink = true
+macos-titlebar-style = hidden
+confirm-close-surface = false
+
+macos-option-as-alt = left
+
+keybind = cmd+enter=toggle_fullscreen
+keybind = alt+enter=unbind
+keybind = cmd+s=text:\x13
