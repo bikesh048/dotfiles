@@ -233,3 +233,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- lazygit floatterm
 vim.keymap.set("n", "<leader>gg", "<cmd>FloatermNew --height=0.9 --width=0.9 --title=lazygit lazygit<CR>", { desc = "Open Lazygit" })
+
+-- One-line git commit
+vim.keymap.set("n", "<leader>htb", function()
+  local msg = vim.fn.input("Commit: ")
+  if msg == "" then return end
+  local result = vim.fn.system("git commit -m " .. vim.fn.shellescape(msg))
+  vim.notify(result, vim.log.levels.INFO)
+end, { desc = "Git: one-line commit" })
