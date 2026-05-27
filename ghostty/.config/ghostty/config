@@ -7,7 +7,7 @@ cursor-style-blink = true
 macos-titlebar-style = hidden
 confirm-close-surface = false
 
-macos-option-as-alt = left
+macos-option-as-alt = true
 
 keybind = cmd+enter=toggle_fullscreen
 keybind = alt+enter=unbind
