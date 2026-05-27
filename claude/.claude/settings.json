@@ -92,8 +92,8 @@
           {
             "type": "command",
             "command": "jq -c '{hookSpecificOutput: {hookEventName: \"PostToolUseFailure\", additionalContext: (\"⚠️ Terminal error detected!\\n\\nFailed command:\\n\" + (.tool_input.command // \"unknown\") + \"\\n\\nError output:\\n\" + (.tool_response.output // (.tool_response | tostring)) + \"\\n\\nDiagnose this error, identify the root cause, and suggest a specific fix. Do NOT auto-apply changes — present your diagnosis and recommendation clearly so the user can decide.\")}}' 2>/dev/null || true",
-            "statusMessage": "Diagnosing terminal error...",
-            "timeout": 10
+            "timeout": 10,
+            "statusMessage": "Diagnosing terminal error..."
           }
         ]
       }
@@ -144,6 +144,7 @@
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "mcpServers": {
@@ -157,6 +158,5 @@
         "TOKEN_SAVIOR_CLIENT": "claude-code"
       }
     }
-  },
-  "model": "sonnet"
+  }
 }
