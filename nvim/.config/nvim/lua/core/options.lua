@@ -4,6 +4,15 @@ vim.g.maplocalleader = " "
 vim.opt.guicursor = ""
 vim.o.clipboard = "unnamedplus"
 
+if vim.fn.has("mac") == 1 then
+  vim.g.clipboard = {
+    name = "pbcopy",
+    copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
+    paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
+    cache_enabled = 0,
+  }
+end
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
