@@ -4,7 +4,7 @@
 
 keybinds clear-defaults=true {
     normal {
-      bind "Alt d" { Detach; }
+        bind "Alt d" { Detach; }
     }
     locked {
         bind "Alt u" { SwitchToMode "normal"; }
@@ -74,6 +74,7 @@ keybinds clear-defaults=true {
         bind "j" { Resize "Increase down"; }
         bind "k" { Resize "Increase up"; }
         bind "l" { Resize "Increase right"; }
+        bind "Alt n" { NewPane; }
         bind "Alt r" { SwitchToMode "normal"; }
     }
     move {
@@ -82,10 +83,10 @@ keybinds clear-defaults=true {
         bind "up" { MovePane "up"; }
         bind "right" { MovePane "right"; }
         bind "h" { MovePane "left"; }
-        bind "Alt m" { SwitchToMode "normal"; }
         bind "j" { MovePane "down"; }
         bind "k" { MovePane "up"; }
         bind "l" { MovePane "right"; }
+        bind "Alt m" { SwitchToMode "normal"; }
         bind "n" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "tab" { MovePane; }
@@ -124,7 +125,7 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "normal"
         }
-        bind "Alt s" { SwitchToMode "normal"; }
+        bind "Alt o" { MoveTab "right"; }
         bind "p" {
             LaunchOrFocusPlugin "plugin-manager" {
                 floating true
@@ -146,15 +147,9 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt u" { SwitchToMode "locked"; }
         bind "Alt i" { MoveTab "left"; }
-        bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
         bind "Alt q" { Quit; }
-    }
-    shared_except "locked" "move" {
-        bind "Alt h" { SwitchToMode "move"; }
+        bind "Alt u" { SwitchToMode "locked"; }
     }
     shared_except "locked" "session" {
         bind "Alt o" { SwitchToMode "session"; }
@@ -173,6 +168,9 @@ keybinds clear-defaults=true {
         bind "Alt b" { SwitchToMode "tmux"; }
     }
     shared_except "locked" "scroll" "search" {
+        bind "Alt f" { ToggleFloatingPanes; }
+    }
+    shared_except "locked" "scroll" "search" "session" {
         bind "Alt s" {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
@@ -214,8 +212,10 @@ keybinds clear-defaults=true {
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
         bind "l" { PageScrollDown; }
-        bind "Alt s" { SwitchToMode "normal"; }
         bind "u" { HalfPageScrollUp; }
+    }
+    shared_among "scroll" "search" "session" {
+        bind "Alt s" { SwitchToMode "normal"; }
     }
     entersearch {
         bind "Alt c" { SwitchToMode "scroll"; }
@@ -245,8 +245,6 @@ keybinds clear-defaults=true {
         bind "," { SwitchToMode "renametab"; }
         bind "[" { SwitchToMode "scroll"; }
         bind "Alt b" { Write 2; SwitchToMode "normal"; }
-        bind "[" { SwitchToMode "scroll"; }
-        bind "[" { SwitchToMode "scroll"; }
         bind "c" { NewTab; SwitchToMode "normal"; }
         bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
         bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
@@ -268,7 +266,7 @@ plugins {
     filepicker location="zellij:strider" {
         cwd "/"
     }
-
+    plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"
     status-bar location="zellij:status-bar"
     strider location="zellij:strider"
@@ -282,6 +280,9 @@ plugins {
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+}
+web_client {
+    font "monospace"
 }
  
 // Use a simplified UI without special fonts (arrow glyphs)
@@ -313,7 +314,7 @@ default_mode "normal"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "compact"
+default_layout "minimal"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
@@ -377,7 +378,7 @@ pane_frames false
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 // 
-// copy_command "pbcopy"
+copy_command "pbcopy"
  
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
@@ -460,6 +461,52 @@ pane_frames false
 // Default: true (if the host terminal supports it)
 // 
 // support_kitty_keyboard_protocol false
+// Whether to make sure a local web server is running when a new Zellij session starts.
+// This web server will allow creating new sessions and attaching to existing ones that have
+// opted in to being shared in the browser.
+// When enabled, navigate to http://127.0.0.1:8082
+// (Requires restart)
+// 
+// Note: a local web server can still be manually started from within a Zellij session or from the CLI.
+// If this is not desired, one can use a version of Zellij compiled without
+// `web_server_capability`
+// 
+// Possible values:
+// - true
+// - false
+// Default: false
+// 
+// web_server false
+// Whether to allow sessions started in the terminal to be shared through a local web server, assuming one is
+// running (see the `web_server` option for more details).
+// (Requires restart)
+// 
+// Note: This is an administrative separation and not intended as a security measure.
+// 
+// Possible values:
+// - "on" (allow web sharing through the local web server if it
+// is online)
+// - "off" (do not allow web sharing unless sessions explicitly opt-in to it)
+// - "disabled" (do not allow web sharing and do not permit sessions started in the terminal to opt-in to it)
+// Default: "off"
+// 
+// web_sharing "off"
+// A path to a certificate file to be used when setting up the web client to serve the
+// connection over HTTPs
+// 
+// web_server_cert "/path/to/cert.pem"
+// A path to a key file to be used when setting up the web client to serve the
+// connection over HTTPs
+// 
+// web_server_key "/path/to/key.pem"
+/// Whether to enforce https connections to the web server when it is bound to localhost
+/// (127.0.0.0/8)
+///
+/// Note: https is ALWAYS enforced when bound to non-local interfaces
+///
+/// Default: false
+// 
+// enforce_https_for_localhost false
  
 // Whether to stack panes when resizing beyond a certain size
 // Default: true
@@ -469,9 +516,30 @@ pane_frames false
 // Whether to show tips on startup
 // Default: true
 // 
-// show_startup_tips false
+show_startup_tips false
  
 // Whether to show release notes on first version run
 // Default: true
 // 
 // show_release_notes false
+ 
+// Whether to enable mouse hover effects and pane grouping functionality
+// default is true
+// advanced_mouse_actions false
+ 
+// The ip address the web server should listen on when it starts
+// Default: "127.0.0.1"
+// (Requires restart)
+// web_server_ip "127.0.0.1"
+ 
+// The port the web server should listen on when it starts
+// Default: 8082
+// (Requires restart)
+// web_server_port 8082
+ 
+// A command to run (will be wrapped with sh -c and provided the RESURRECT_COMMAND env variable) 
+// after Zellij attempts to discover a command inside a pane when resurrecting sessions, the STDOUT
+// of this command will be used instead of the discovered RESURRECT_COMMAND
+// can be useful for removing wrappers around commands
+// Note: be sure to escape backslashes and similar characters properly
+// post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
