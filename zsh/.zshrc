@@ -147,6 +147,14 @@ alias gfa='git fetch --all'
 alias gsta='git stash'
 alias gstp='git stash pop'
 
+# Zellij shortcuts
+alias ztc='zellij action query-tab-names | wc -l | tr -d " "'
+zt() {
+    zellij action dump-layout 2>/dev/null \
+        | grep -oE 'name="[^"]+"( focus=true)?' \
+        | awk -F'"' '{ printf "%s%s\n", $2, ($3 ~ /focus/ ? "  *" : "") }'
+}
+
 # General
 alias v='nvim'
 alias c='clear'
