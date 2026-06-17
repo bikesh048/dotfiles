@@ -18,6 +18,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "sonnet",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -63,28 +64,6 @@
         ]
       }
     ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y @iyadhk/clauditor hook stop"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y @iyadhk/clauditor hook post-tool-use"
-          }
-        ]
-      }
-    ],
     "PostToolUseFailure": [
       {
         "matcher": "Bash",
@@ -109,7 +88,6 @@
     "playwright@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "oh-my-claudecode@oh-my-claudecode": true,
     "obsidian@obsidian-skills": true,
     "oh-my-claudecode@omc": true,
     "claude-mem@thedotmack": true
@@ -140,23 +118,13 @@
       }
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
+  "autoCompactEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
-  "mcpServers": {
-    "token-savior-recall": {
-      "command": "uvx",
-      "args": [
-        "token-savior-recall"
-      ],
-      "env": {
-        "WORKSPACE_ROOTS": "/Users/bikeshrestha/codewing-projects/tripcart",
-        "TOKEN_SAVIOR_CLIENT": "claude-code"
-      }
-    }
-  }
+  "mcpServers": {}
 }
